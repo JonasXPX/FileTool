@@ -8,6 +8,7 @@ import me.jonasxpx.filetool.service.localresource.filemap.FileInfo;
 import org.springframework.core.io.PathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -74,5 +75,10 @@ public class LocalFileResource implements FileResourceManagement {
         if (!Files.exists(resourceMapFile)) {
             Files.createFile(resourceMapFile);
         }
+    }
+
+    @Override
+    public void upload(MultipartFile multipartFile) {
+        throw new UnsupportedOperationException("Not implemented yet.");
     }
 }

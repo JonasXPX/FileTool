@@ -1,6 +1,7 @@
 package me.jonasxpx.filetool.service;
 
 import org.springframework.core.io.Resource;
+import org.springframework.web.multipart.MultipartFile;
 
 public interface FileResourceManagement {
 
@@ -12,4 +13,5 @@ public interface FileResourceManagement {
      */
     Resource getFileById(String id);
 
+    void upload(MultipartFile multipartFile);
 }
