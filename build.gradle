@@ -23,6 +23,8 @@ dependencies {
 
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.kafka:spring-kafka'
+
+    implementation 'com.dropbox.core:dropbox-core-sdk:7.0.0'
 }
 
 test {

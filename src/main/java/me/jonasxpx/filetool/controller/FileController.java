@@ -1,11 +1,11 @@
 package me.jonasxpx.filetool.controller;
 
 import me.jonasxpx.filetool.service.FileResourceManagement;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.core.io.Resource;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Objects;
 
@@ -14,7 +14,7 @@ public class FileController {
 
     private final FileResourceManagement fileResourceManagement;
 
-    public FileController(FileResourceManagement fileResourceManagement) {
+    public FileController(@Qualifier("dropBoxFileResource") FileResourceManagement fileResourceManagement) {
         this.fileResourceManagement = fileResourceManagement;
     }
 
@@ -26,5 +26,11 @@ public class FileController {
         }
 
         return ResponseEntity.ok(resource);
+    }
+
+    @PostMapping
+    public ResponseEntity<Void> uploadFile(@RequestParam("file") MultipartFile file) {
+        fileResourceManagement.upload(file);
+        return ResponseEntity.ok().build();
     }
 }

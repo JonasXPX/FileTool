@@ -1,3 +1,11 @@
 spring:
   application:
     name: file-tool
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 900MB
+      max-request-size: 900MB
+dropbox:
+  access-token: ${DROPBOX_ACCESS_TOKEN}
+
