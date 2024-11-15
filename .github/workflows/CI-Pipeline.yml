@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    uses: devops/.github/workflows/reusable-java-build.yml@main
+    uses: jonasxpx/devops/.github/workflows/reusable-java-build.yml@main
   deploy:
     name: 'Deploy'
     runs-on: ubuntu-latest
